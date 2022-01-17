@@ -17,6 +17,9 @@ public class EventFinderController {
 
     @GetMapping("/findEventById/{id}")
     public Event findEventById(@PathVariable String id){
-        eventFinderService.findEventById(id);
+        return eventFinderService.findEventById(id);
     }
+
+
+
 }
