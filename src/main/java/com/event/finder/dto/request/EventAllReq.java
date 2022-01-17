@@ -1,11 +1,14 @@
 package com.event.finder.dto.request;
 
+import lombok.Builder;
 import lombok.Data;
 
 import javax.validation.constraints.Min;
 
 @Data
-public class EventFindByIdReq {
+public class EventAllReq {
     @Min(value = 0,message = "Id can not be negative value")
-    private String id;
+    private Integer page=0;
+    @Min(value =0 ,message = "Id can not be negative value")
+    private Integer size=10;
 }

@@ -5,7 +5,7 @@ import lombok.Data;
 import javax.validation.constraints.NotNull;
 
 @Data
-public class EventFindByOrganizer {
+public class EventFindByOrganizerReq {
     @NotNull(message = "Organizer can not be null")
     private String organizer;
 }

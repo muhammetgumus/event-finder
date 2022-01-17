@@ -50,7 +50,7 @@ public class EventFinderControllerTest {
                 .time("14:00").organizer("Carnica")
                 .build();
         String expectedValue = objectMapper.writeValueAsString(event);
-        Mockito.when(eventFinderService.findEventById(Mockito.anyString())).thenReturn(event);
+        Mockito.when(eventFinderService.findById(Mockito.anyString())).thenReturn(event);
 
         MockHttpServletRequestBuilder request = MockMvcRequestBuilders.get("/api/v1/findEventById/{id}", 1)
                 .accept(MediaType.APPLICATION_JSON)

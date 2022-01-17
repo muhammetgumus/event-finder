@@ -5,7 +5,7 @@ import lombok.Data;
 import javax.validation.constraints.NotNull;
 
 @Data
-public class EventFindByPostalCodeReq {
-    @NotNull(message = "Postal code can not be null")
-    private String postalCode;
+public class EventFindByStreetReq {
+    @NotNull(message = "Street can not be null")
+    private String street;
 }

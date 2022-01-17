@@ -1,11 +1,14 @@
 package com.event.finder.dto.request;
 
 import lombok.Data;
-
-import javax.validation.constraints.NotNull;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.util.Date;
 
 @Data
-public class EventFindByTimeReq {
-    @NotNull(message = "Time can not be null")
-    private String time;
+public class EventFindByDateBetweenReq {
+    @DateTimeFormat(pattern = "yyyy-mm-dd")
+    private Date startDate=new Date();
+
+    @DateTimeFormat(pattern = "yyyy-mm-dd")
+    private Date endDate=new Date();
 }
