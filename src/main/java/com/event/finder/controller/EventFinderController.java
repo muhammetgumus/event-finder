@@ -18,7 +18,7 @@ public class EventFinderController {
 
     @PostMapping("/all")
     @ResponseBody
-    public BaseResponse<Page<Event>> allEvents(EventAllReq request) {
+    public BaseResponse<Page<Event>> allEvents(@RequestBody EventAllReq request) {
         return new BaseResponse().ok(eventFinderService
                 .allEvents(PageRequest.of(request.getPage(), request.getSize())));
     }
