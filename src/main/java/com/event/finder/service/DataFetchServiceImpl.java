@@ -27,8 +27,7 @@ public class DataFetchServiceImpl implements DataFetchService{
         List<Event> datas = Arrays.stream(responseEntity.getBody().getData()).collect(Collectors.toList());
         datas.forEach(event -> {
             System.out.println(event.getId()+" --> "+event.getName());
-
+            eventFinderService.saveFetchedData(event);
         });
-        eventFinderService.saveFetchedData(datas);
     }
 }

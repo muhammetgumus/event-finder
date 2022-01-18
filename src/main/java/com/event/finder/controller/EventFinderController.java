@@ -9,6 +9,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1")
@@ -49,7 +51,7 @@ public class EventFinderController {
 
     @PostMapping("/findByPostalCode")
     @ResponseBody
-    public BaseResponse<Page<Event>> findByPostalCode(@RequestBody EventFindByPostalCodeReq request) {
+    public BaseResponse<Page<Event>> findByPostalCode(@Valid @RequestBody EventFindByPostalCodeReq request) {
         return new BaseResponse().ok(eventFinderService.findByPostalCode(request));
     }
 

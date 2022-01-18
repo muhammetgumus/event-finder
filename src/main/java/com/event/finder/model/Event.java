@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Data
@@ -43,17 +44,17 @@ public class Event {
     @JsonProperty("plz")
     private String postalCode;
 
-    @NotEmpty(message = "Start Date can not be empty")
+    @NotNull(message = "Start Date can not be empty")
     @DateTimeFormat(pattern = "yyyy-mm-dd")
     @JsonProperty("von")
     private Date startDate;
 
-    @NotEmpty(message = "End Date can not be empty")
+    @NotNull(message = "End Date can not be empty")
     @DateTimeFormat(pattern = "yyyy-mm-dd")
     @JsonProperty("bis")
     private Date endDate;
 
-    @NotEmpty(message = "Time can not be empty")
+    @NotNull(message = "Time can not be empty")
     @JsonProperty("zeit")
     private String time;
 
@@ -61,7 +62,6 @@ public class Event {
     @JsonProperty("veranstalter")
     private String organizer;
 
-    @Email
     @JsonProperty("mail")
     private String email;
 

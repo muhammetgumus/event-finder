@@ -17,5 +17,5 @@ public interface EventFinderService {
     Page<Event> findByName(EventFindByNameReq name);
     Page<Event> findByTime(EventFindByTimeReq request);
     Page<Event> findByOrganizer(EventFindByOrganizerReq request);
-    void saveFetchedData(List<Event> event);
+    Event saveFetchedData(Event event);
 }

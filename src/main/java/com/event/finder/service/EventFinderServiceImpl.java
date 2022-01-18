@@ -60,8 +60,8 @@ public class EventFinderServiceImpl implements EventFinderService {
     }
 
     @Override
-    public void saveFetchedData(List<Event> events) {
-        eventFinderRepository.saveAll(events);
+    public Event saveFetchedData(Event event) {
+       return eventFinderRepository.save(event);
     }
 
     @Override
