@@ -17,5 +17,4 @@ public class ExceptionHandlerAdvice extends ResponseEntityExceptionHandler {
         err.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
         return new BaseResponse<>().fail(exception.getMessage());
     }
-
 }
