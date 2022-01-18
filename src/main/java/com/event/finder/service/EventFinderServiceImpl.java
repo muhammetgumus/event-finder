@@ -67,10 +67,9 @@ public class EventFinderServiceImpl implements EventFinderService {
     @Override
     public Page<Event> betweenStartAndEnd(EventFindByDateBetweenReq request) {
         return eventFinderRepository
-                .findAllByStartDateLessThanEqualAndEndDateGreaterThanEqual(
-                        request.getStartDate(),request.getEndDate(), getPageAbleInfo(request));
+                .findByStartDateAfterAndEndDateBefore(request.getStartDate(),
+                        request.getEndDate(), getPageAbleInfo(request));
     }
-
 
     private Pageable getPageAbleInfo(BaseRequest request){
         return PageRequest.of(request.getPage(),request.getSize());

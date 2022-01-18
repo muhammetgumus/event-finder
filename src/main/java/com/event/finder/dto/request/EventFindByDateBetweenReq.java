@@ -7,8 +7,8 @@ import java.util.Date;
 @Data
 public class EventFindByDateBetweenReq extends BaseRequest {
     @DateTimeFormat(pattern = "yyyy-mm-dd")
-    private Date startDate=new Date();
+    private Date startDate;
 
     @DateTimeFormat(pattern = "yyyy-mm-dd")
-    private Date endDate=new Date();
+    private Date endDate;
 }

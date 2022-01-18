@@ -3,6 +3,7 @@ package com.event.finder.repository;
 import com.event.finder.model.Event;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
@@ -17,6 +18,8 @@ public interface EventFinderRepository extends PagingAndSortingRepository<Event,
     Page<Event> findByStreet(String street, Pageable pageable);
     Page<Event> findByTime(String time, Pageable pageable);
     Page<Event> findByOrganizer(String organizer, Pageable pageable);
-    Page<Event> findAllByStartDateLessThanEqualAndEndDateGreaterThanEqual(Date startDate, Date endDate, Pageable pageable);
+
+    //@Query(value = "select * from Event where startDate BETWEEN :startDate AND :endDate")
+    Page<Event> findByStartDateAfterAndEndDateBefore(Date startDate, Date endDate, Pageable pageable);
 
 }
