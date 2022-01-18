@@ -1,6 +1,7 @@
 package com.event.finder;
 
 import com.event.finder.controller.EventFinderController;
+import com.event.finder.dto.request.EventFindByIdReq;
 import com.event.finder.model.Event;
 import com.event.finder.service.EventFinderService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -50,7 +51,9 @@ public class EventFinderControllerTest {
                 .time("14:00").organizer("Carnica")
                 .build();
         String expectedValue = objectMapper.writeValueAsString(event);
-        Mockito.when(eventFinderService.findById(Mockito.anyString())).thenReturn(event);
+        EventFindByIdReq req = new EventFindByIdReq();
+        req.setId("1");
+        Mockito.when(eventFinderService.findById(req)).thenReturn(event);
 
         MockHttpServletRequestBuilder request = MockMvcRequestBuilders.get("/api/v1/findEventById/{id}", 1)
                 .accept(MediaType.APPLICATION_JSON)

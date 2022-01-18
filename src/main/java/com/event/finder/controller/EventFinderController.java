@@ -20,49 +20,49 @@ public class EventFinderController {
     @ResponseBody
     public BaseResponse<Page<Event>> allEvents(@RequestBody EventAllReq request) {
         return new BaseResponse().ok(eventFinderService
-                .allEvents(PageRequest.of(request.getPage(), request.getSize())));
+                .allEvents(request));
     }
 
     @PostMapping("/findById")
     @ResponseBody
     public BaseResponse<Event> findById(@RequestBody EventFindByIdReq request) {
-        return new BaseResponse().ok(eventFinderService.findById(request.getId()));
+        return new BaseResponse().ok(eventFinderService.findById(request));
     }
 
     @PostMapping("/findByName")
     @ResponseBody
     public BaseResponse<Page<Event>> findByName(@RequestBody EventFindByNameReq request) {
-        return new BaseResponse().ok(eventFinderService.findByName(request.getName()));
+        return new BaseResponse().ok(eventFinderService.findByName(request));
     }
 
     @PostMapping("/findByOrganizer")
     @ResponseBody
     public BaseResponse<Page<Event>> findByOrganizer(@RequestBody EventFindByOrganizerReq request) {
-        return new BaseResponse().ok(eventFinderService.findByOrganizer(request.getOrganizer()));
+        return new BaseResponse().ok(eventFinderService.findByOrganizer(request));
     }
 
     @PostMapping("/findByPlace")
     @ResponseBody
     public BaseResponse<Page<Event>> findByPlace(@RequestBody EventFindByPlaceReq request) {
-        return new BaseResponse().ok(eventFinderService.findByPlace(request.getPlace()));
+        return new BaseResponse().ok(eventFinderService.findByPlace(request));
     }
 
     @PostMapping("/findByPostalCode")
     @ResponseBody
     public BaseResponse<Page<Event>> findByPostalCode(@RequestBody EventFindByPostalCodeReq request) {
-        return new BaseResponse().ok(eventFinderService.findByPostalCode(request.getPostalCode()));
+        return new BaseResponse().ok(eventFinderService.findByPostalCode(request));
     }
 
     @PostMapping("/findByStreet")
     @ResponseBody
     public BaseResponse<Page<Event>> findByStreet(@RequestBody EventFindByStreetReq request) {
-        return new BaseResponse().ok(eventFinderService.findByStreet(request.getStreet()));
+        return new BaseResponse().ok(eventFinderService.findByStreet(request));
     }
 
     @PostMapping("/findByTime")
     @ResponseBody
     public BaseResponse<Page<Event>> findByTime(@RequestBody EventFindByTimeReq request) {
-        return new BaseResponse().ok(eventFinderService.findByTime(request.getTime()));
+        return new BaseResponse().ok(eventFinderService.findByTime(request));
     }
 
 
@@ -70,7 +70,7 @@ public class EventFinderController {
     @ResponseBody
     public BaseResponse<Page<Event>> findByDateBetween(@RequestBody EventFindByDateBetweenReq request) {
         return new BaseResponse().ok(eventFinderService.
-                betweenStartAndEnd(request.getStartDate(), request.getEndDate()));
+                betweenStartAndEnd(request));
     }
 
 
