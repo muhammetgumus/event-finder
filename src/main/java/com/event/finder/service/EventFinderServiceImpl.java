@@ -9,6 +9,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class EventFinderServiceImpl implements EventFinderService {
 
@@ -55,6 +57,11 @@ public class EventFinderServiceImpl implements EventFinderService {
     @Override
     public Page<Event> findByOrganizer(EventFindByOrganizerReq request) {
         return eventFinderRepository.findByOrganizer(request.getOrganizer(), getPageAbleInfo(request));
+    }
+
+    @Override
+    public void saveFetchedData(List<Event> events) {
+        eventFinderRepository.saveAll(events);
     }
 
     @Override

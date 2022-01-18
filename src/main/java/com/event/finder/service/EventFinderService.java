@@ -5,6 +5,7 @@ import com.event.finder.model.Event;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import java.util.Date;
+import java.util.List;
 
 public interface EventFinderService {
     Event findById(EventFindByIdReq req);
@@ -16,4 +17,5 @@ public interface EventFinderService {
     Page<Event> findByName(EventFindByNameReq name);
     Page<Event> findByTime(EventFindByTimeReq request);
     Page<Event> findByOrganizer(EventFindByOrganizerReq request);
+    void saveFetchedData(List<Event> event);
 }
